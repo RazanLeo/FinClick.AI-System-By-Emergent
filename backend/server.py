@@ -158,7 +158,7 @@ async def initialize_predefined_accounts():
         {
             "id": "guest-finclick-2025",
             "email": "Guest@FinClick.AI",
-            "password_hash": hash_password("YOUR-GUEST-PASSWORD-HERE"),
+            "password_hash": hash_password("GuestFinClickAI@123321"),
             "user_type": "guest",
             "full_name": "الضيف العام",
             "subscription_status": "unlimited",
