@@ -260,7 +260,7 @@ const AdvancedAnalysisPage = () => {
         analysis_types: formData.analysis_types
       };
 
-      const response = await axios.post(`${API}/api/analyze`, analysisData, {
+      const response = await axios.post(`${API}/analyze`, analysisData, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('token')}`
