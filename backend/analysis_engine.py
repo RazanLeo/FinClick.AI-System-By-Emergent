@@ -521,41 +521,6 @@ class FinancialAnalysisEngine:
                 "تطوير خطط إدارة المخاطر"
             ]
         }
-        "current_ratio": 1.0,
-        "debt_to_equity": 5.0,
-        "roe": 12.0,
-        "roa": 1.2,
-        "nim": 3.5
-    },
-    "manufacturing": {
-        "current_ratio": 1.5,
-        "debt_to_equity": 0.6,
-        "roe": 15.0,
-        "roa": 8.0,
-        "inventory_turnover": 8.0
-    },
-    "retail": {
-        "current_ratio": 1.2,
-        "debt_to_equity": 0.8,
-        "roe": 18.0,
-        "roa": 6.0,
-        "inventory_turnover": 12.0
-    },
-    "technology": {
-        "current_ratio": 2.0,
-        "debt_to_equity": 0.3,
-        "roe": 25.0,
-        "roa": 15.0,
-        "gross_margin": 70.0
-    },
-    "healthcare": {
-        "current_ratio": 1.8,
-        "debt_to_equity": 0.4,
-        "roe": 20.0,
-        "roa": 12.0,
-        "operating_margin": 15.0
-    }
-}
 
 class FinancialAnalysisEngine:
     """محرك التحليل المالي الثوري المحسن للأداء"""
