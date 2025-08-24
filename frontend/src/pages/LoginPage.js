@@ -35,7 +35,7 @@ const LoginPage = () => {
     },
     guest: {
       email: 'Guest@FinClick.AI',
-      password: 'YOUR-GUEST-PASSWORD',
+      password: 'GuestFinClickAI@123321',
       label: language === 'ar' ? 'حساب الضيوف' : 'Guest Account',
       size: 'small', // أصغر
       hideUsername: true // إخفاء اسم المستخدم
