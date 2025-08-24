@@ -774,30 +774,147 @@ const AdvancedAnalysisPage = () => {
 
               <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
                 <h3 className="text-xl font-bold mb-4 text-center text-white">
-                  {language === 'ar' ? 'ملخص التحليل' : 'Analysis Summary'}
+                  {language === 'ar' ? 'ملخص التحليل الشامل' : 'Comprehensive Analysis Summary'}
                 </h3>
                 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                {/* معلومات الشركة */}
+                <div className="mb-6 p-4 bg-gray-800 rounded-lg">
+                  <h4 className="font-bold text-yellow-400 mb-3">
+                    {language === 'ar' ? 'معلومات الشركة' : 'Company Information'}
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                    <div><span className="text-gray-400">{language === 'ar' ? 'اسم الشركة:' : 'Company:'}</span> <span className="text-white">{analysisResults.company_name}</span></div>
+                    <div><span className="text-gray-400">{language === 'ar' ? 'تاريخ التحليل:' : 'Analysis Date:'}</span> <span className="text-white">{new Date(analysisResults.analysis_date).toLocaleDateString()}</span></div>
+                    <div><span className="text-gray-400">{language === 'ar' ? 'إجمالي التحليلات:' : 'Total Analyses:'}</span> <span className="text-yellow-400 font-bold">{analysisResults.total_analysis_count}</span></div>
+                    <div><span className="text-gray-400">{language === 'ar' ? 'الملفات المعالجة:' : 'Files Processed:'}</span> <span className="text-green-400">{analysisResults.files_processed}</span></div>
+                  </div>
+                </div>
+                
+                {/* إحصائيات التحليل */}
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
                   <div className="bg-blue-900/30 border border-blue-700/50 rounded-lg p-4 text-center">
                     <div className="text-2xl font-bold text-blue-400 mb-1">13</div>
-                    <div className="text-blue-300 text-sm">{language === 'ar' ? 'تحليل كلاسيكي' : 'Classical'}</div>
+                    <div className="text-blue-300 text-sm">{language === 'ar' ? 'كلاسيكي' : 'Classical'}</div>
                   </div>
                   
                   <div className="bg-green-900/30 border border-green-700/50 rounded-lg p-4 text-center">
                     <div className="text-2xl font-bold text-green-400 mb-1">23</div>
-                    <div className="text-green-300 text-sm">{language === 'ar' ? 'تحليل متوسط' : 'Intermediate'}</div>
+                    <div className="text-green-300 text-sm">{language === 'ar' ? 'متوسط' : 'Intermediate'}</div>
                   </div>
                   
                   <div className="bg-purple-900/30 border border-purple-700/50 rounded-lg p-4 text-center">
                     <div className="text-2xl font-bold text-purple-400 mb-1">28</div>
-                    <div className="text-purple-300 text-sm">{language === 'ar' ? 'تحليل متقدم' : 'Advanced'}</div>
+                    <div className="text-purple-300 text-sm">{language === 'ar' ? 'متقدم' : 'Advanced'}</div>
+                  </div>
+                  
+                  <div className="bg-orange-900/30 border border-orange-700/50 rounded-lg p-4 text-center">
+                    <div className="text-2xl font-bold text-orange-400 mb-1">25</div>
+                    <div className="text-orange-300 text-sm">{language === 'ar' ? 'معقد' : 'Complex'}</div>
                   </div>
                   
                   <div className="bg-red-900/30 border border-red-700/50 rounded-lg p-4 text-center">
-                    <div className="text-2xl font-bold text-red-400 mb-1">52+</div>
-                    <div className="text-red-300 text-sm">{language === 'ar' ? 'تحليل AI' : 'AI Analysis'}</div>
+                    <div className="text-2xl font-bold text-red-400 mb-1">27</div>
+                    <div className="text-red-300 text-sm">{language === 'ar' ? 'ذكاء اصطناعي' : 'AI-Powered'}</div>
                   </div>
                 </div>
+
+                {/* الملخص التنفيذي */}
+                {analysisResults.results?.executive_summary && (
+                  <div className="mb-6 p-4 bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 border border-yellow-600/50 rounded-lg">
+                    <h4 className="font-bold text-yellow-400 mb-3 flex items-center gap-2">
+                      <span>⭐</span>
+                      {language === 'ar' ? 'النتائج الرئيسية' : 'Key Findings'}
+                    </h4>
+                    <div className="space-y-2 text-sm">
+                      {analysisResults.results.executive_summary.key_findings && (
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-yellow-400">{analysisResults.results.executive_summary.key_findings.overall_rating || 'B+'}</div>
+                            <div className="text-yellow-300 text-xs">{language === 'ar' ? 'التقييم العام' : 'Overall Rating'}</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-green-400">{analysisResults.results.executive_summary.key_findings.financial_health_score || '82'}</div>
+                            <div className="text-green-300 text-xs">{language === 'ar' ? 'الصحة المالية' : 'Financial Health'}</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-2xl font-bold text-blue-400">{analysisResults.results.executive_summary.key_findings.liquidity_status || 'قوي'}</div>
+                            <div className="text-blue-300 text-xs">{language === 'ar' ? 'السيولة' : 'Liquidity'}</div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* النسب المالية الرئيسية */}
+                {analysisResults.results?.financial_ratios && (
+                  <div className="mb-6 p-4 bg-gray-800 rounded-lg">
+                    <h4 className="font-bold text-white mb-3 flex items-center gap-2">
+                      <span>📊</span>
+                      {language === 'ar' ? 'النسب المالية الرئيسية' : 'Key Financial Ratios'}
+                    </h4>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                      {Object.entries(analysisResults.results.financial_ratios).slice(0, 8).map(([key, value]) => (
+                        <div key={key} className="text-center">
+                          <div className="text-lg font-bold text-white">{typeof value === 'number' ? value.toFixed(2) : value}</div>
+                          <div className="text-gray-400 text-xs capitalize">{key.replace('_', ' ')}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* تحليل SWOT */}
+                {analysisResults.results?.swot_analysis && (
+                  <div className="mb-6 p-4 bg-gray-800 rounded-lg">
+                    <h4 className="font-bold text-white mb-3 flex items-center gap-2">
+                      <span>⚡</span>
+                      {language === 'ar' ? 'تحليل SWOT' : 'SWOT Analysis'}
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                      <div className="space-y-2">
+                        <div className="font-medium text-green-400">{language === 'ar' ? 'نقاط القوة:' : 'Strengths:'}</div>
+                        <ul className="text-green-300 space-y-1">
+                          {(analysisResults.results.swot_analysis.strengths || []).slice(0, 3).map((strength, idx) => (
+                            <li key={idx} className="text-xs">• {strength}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="font-medium text-blue-400">{language === 'ar' ? 'الفرص:' : 'Opportunities:'}</div>
+                        <ul className="text-blue-300 space-y-1">
+                          {(analysisResults.results.swot_analysis.opportunities || []).slice(0, 3).map((opportunity, idx) => (
+                            <li key={idx} className="text-xs">• {opportunity}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* التوصيات */}
+                {analysisResults.results?.recommendations && (
+                  <div className="mb-6 p-4 bg-gradient-to-r from-blue-900/20 to-blue-800/20 border border-blue-600/50 rounded-lg">
+                    <h4 className="font-bold text-blue-400 mb-3 flex items-center gap-2">
+                      <span>💡</span>
+                      {language === 'ar' ? 'التوصيات الاستراتيجية' : 'Strategic Recommendations'}
+                    </h4>
+                    <div className="space-y-2">
+                      {(analysisResults.results.recommendations || []).slice(0, 3).map((rec, idx) => (
+                        <div key={idx} className="flex items-start gap-3 text-sm">
+                          <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">{idx + 1}</div>
+                          <div>
+                            <div className="font-medium text-white">{rec.category}</div>
+                            <div className="text-gray-300 text-xs">{rec.recommendation}</div>
+                            <div className="text-blue-400 text-xs">أولوية: {rec.priority}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              </div>
 
                 <div className="text-center">
                   <p className="text-gray-400 mb-6">
