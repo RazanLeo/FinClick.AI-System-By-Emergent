@@ -60,9 +60,9 @@ const AdvancedAnalysisPage = () => {
     const fetchData = async () => {
       try {
         const [sectorsRes, entitiesRes, levelsRes] = await Promise.all([
-          axios.get(`${API}/api/sectors`),
-          axios.get(`${API}/api/legal-entities`),
-          axios.get(`${API}/api/comparison-levels`)
+          axios.get(`${API}/sectors`),
+          axios.get(`${API}/legal-entities`),
+          axios.get(`${API}/comparison-levels`)
         ]);
 
         setSectors(sectorsRes.data.sectors);
