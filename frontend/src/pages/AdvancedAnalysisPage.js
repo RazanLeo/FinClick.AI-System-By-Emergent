@@ -950,6 +950,8 @@ const AdvancedAnalysisPage = () => {
 
             </div>
           )}
+        </div>
+      </div>
 
           {/* زر بدء التحليل */}
           {currentStep === 1 && (
