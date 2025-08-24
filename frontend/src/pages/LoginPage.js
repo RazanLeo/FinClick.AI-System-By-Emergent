@@ -4,8 +4,8 @@ import axios from 'axios';
 import { AuthContext } from '../App';
 import { useToast } from '../hooks/use-toast';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
+const API = BACKEND_URL ? `${BACKEND_URL}/api` : '/api';
 
 const LoginPage = () => {
   const { user, login, language } = useContext(AuthContext);
