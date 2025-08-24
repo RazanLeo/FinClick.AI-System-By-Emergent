@@ -1,0 +1,40 @@
+📁 FinClick.AI - قائمة الملفات المحدثة
+=================================
+
+✅ ./backend/ai_agents.py
+✅ ./backend/analysis_engine.py
+✅ ./backend/ocr_data_parser.py
+✅ ./backend/server.py
+✅ ./backend_test.py
+✅ ./frontend/craco.config.js
+✅ ./frontend/postcss.config.js
+✅ ./frontend/src/App.js
+✅ ./frontend/src/components/Header.js
+✅ ./frontend/src/components/NewHeader.js
+✅ ./frontend/src/hooks/use-toast.js
+✅ ./frontend/src/index.js
+✅ ./frontend/src/lib/utils.js
+✅ ./frontend/src/pages/AboutPage.js
+✅ ./frontend/src/pages/AnalysisPage.js
+✅ ./frontend/src/pages/BlogPage.js
+✅ ./frontend/src/pages/CompliancePage.js
+✅ ./frontend/src/pages/Dashboard.js
+✅ ./frontend/src/pages/EventsPage.js
+✅ ./frontend/src/pages/HomePage.js
+✅ ./frontend/src/pages/HomePage_part2.js
+✅ ./frontend/src/pages/IPPolicyPage.js
+✅ ./frontend/src/pages/IntellectualPropertyPage.js
+✅ ./frontend/src/pages/JobsPage.js
+✅ ./frontend/src/pages/LoginPage.js
+✅ ./frontend/src/pages/ManualPage.js
+✅ ./frontend/src/pages/MediaPage.js
+✅ ./frontend/src/pages/OtherPoliciesPage.js
+✅ ./frontend/src/pages/PaymentPage.js
+✅ ./frontend/src/pages/PaymentPolicyPage.js
+✅ ./frontend/src/pages/PoliciesPage.js
+✅ ./frontend/src/pages/PrivacyPage.js
+✅ ./frontend/src/pages/SecurityPage.js
+✅ ./frontend/src/pages/TermsPage.js
+✅ ./frontend/tailwind.config.js
+✅ ./tests/__init__.py
+✅ ./timeout_analysis_test.py
