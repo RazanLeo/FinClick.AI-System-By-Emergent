@@ -924,29 +924,28 @@ const AdvancedAnalysisPage = () => {
                     }
                   </p>
                   
-              {/* زر التحليل الجديد */}
-              <div className="text-center mt-8">
-                <button
-                  onClick={() => {
-                    setCurrentStep(1);
-                    setFormData({
-                      company_name: '',
-                      language: 'ar',
-                      sector: '',
-                      activity: '',
-                      legal_entity: '',
-                      comparison_level: '',
-                      analysis_years: 1,
-                      analysis_types: ['comprehensive']
-                    });
-                    setAnalysisResults(null);
-                    setAnalysisProgress(0);
-                  }}
-                  className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-lg font-bold hover:shadow-xl transition-all"
-                >
-                  {language === 'ar' ? 'تحليل جديد' : 'New Analysis'}
-                </button>
-              </div>
+                  <button
+                    onClick={() => {
+                      setCurrentStep(1);
+                      setFiles([]);
+                      setFormData({
+                        company_name: '',
+                        language: language,
+                        sector: '',
+                        activity: '',
+                        legal_entity: '',
+                        comparison_level: '',
+                        analysis_years: 1,
+                        analysis_types: ['comprehensive']
+                      });
+                      setAnalysisResults(null);
+                      setAnalysisProgress(0);
+                    }}
+                    className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-lg font-bold hover:shadow-xl transition-all"
+                  >
+                    {language === 'ar' ? 'تحليل جديد' : 'New Analysis'}
+                  </button>
+                </div>
 
             </div>
           )}
