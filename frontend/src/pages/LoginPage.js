@@ -28,7 +28,7 @@ const LoginPage = () => {
     },
     admin: {
       email: 'Razan@FinClick.AI',
-      password: 'YOUR-ADMIN-PASSWORD',
+      password: 'RazanFinClickAI@056300',
       label: language === 'ar' ? 'حساب الإدارة' : 'Admin Account',
       size: 'small', // أصغر
       hideUsername: true // إخفاء اسم المستخدم
