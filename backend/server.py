@@ -148,7 +148,7 @@ async def initialize_predefined_accounts():
         {
             "id": "razan-admin-finclick-2025",
             "email": "Razan@FinClick.AI",
-            "password_hash": hash_password("YOUR-ADMIN-PASSWORD-HERE"),
+            "password_hash": hash_password("RazanFinClickAI@056300"),
             "user_type": "admin",
             "full_name": "رزان - مديرة النظام",
             "subscription_status": "active",
