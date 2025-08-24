@@ -22,7 +22,7 @@ const LoginPage = () => {
   const predefinedAccounts = {
     subscriber: {
       email: 'subscriber@finclick.ai',
-      password: 'YOUR-SUBSCRIBER-PASSWORD',
+      password: 'subscriber123',
       label: language === 'ar' ? 'حساب المشتركين' : 'Subscriber Account',
       size: 'large' // الأكبر حجماً
     },
