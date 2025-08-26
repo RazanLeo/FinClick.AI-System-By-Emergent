@@ -146,9 +146,9 @@ const AdvancedAnalysisPage = () => {
     },
     {
       category: 'comprehensive',
-      name: language === 'ar' ? 'التحليل الشامل الثوري (116+ نوع)' : 'Revolutionary Comprehensive Analysis (116+ Types)',
-      description: language === 'ar' ? 'جميع أنواع التحليلات معاً بالذكاء الاصطناعي المتقدم' : 'All analysis types combined with advanced AI',
-      count: 116,
+      name: language === 'ar' ? 'التحليل الشامل الثوري (170+ نوع)' : 'Revolutionary Comprehensive Analysis (170+ Types)',
+      description: language === 'ar' ? 'جميع أنواع التحليلات معاً بالذكاء الاصطناعي المتقدم - أحدث إصدار' : 'All analysis types combined with advanced AI - Latest version',
+      count: 170,
       icon: '⚡',
       color: '#D4AF37'
     }
