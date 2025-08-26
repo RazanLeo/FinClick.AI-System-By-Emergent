@@ -19,7 +19,7 @@ import time
 from datetime import datetime
 
 class RevolutionaryFinClickTester:
-    def __init__(self, base_url="https://smartfinance-ai-1.preview.emergentagent.com/api"):
+    def __init__(self, base_url="https://finclick-ai-3.preview.emergentagent.com/api"):
         self.base_url = base_url
         self.token = None
         self.tests_run = 0

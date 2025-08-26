@@ -244,7 +244,7 @@ const AnalysisPage = () => {
     
     try {
       const token = localStorage.getItem('token');
-      const backendUrl = process.env.REACT_APP_BACKEND_URL || import.meta.env.REACT_APP_BACKEND_URL || 'https://smartfinance-ai-1.preview.emergentagent.com';
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || import.meta.env.REACT_APP_BACKEND_URL || 'https://finclick-ai-3.preview.emergentagent.com';
       
       // استخدام التحليل العادي دائماً (تجاهل الملفات مؤقتاً)
       console.log('Starting analysis...');
@@ -330,7 +330,7 @@ const AnalysisPage = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const backendUrl = process.env.REACT_APP_BACKEND_URL || import.meta.env.REACT_APP_BACKEND_URL || 'https://smartfinance-ai-1.preview.emergentagent.com';
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || import.meta.env.REACT_APP_BACKEND_URL || 'https://finclick-ai-3.preview.emergentagent.com';
       
       // تحديد نوع التقرير والرابط المناسب
       const reportEndpoints = {
