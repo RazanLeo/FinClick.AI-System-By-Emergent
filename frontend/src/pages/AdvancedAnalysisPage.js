@@ -368,7 +368,7 @@ const AdvancedAnalysisPage = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 max-w-3xl mx-auto">
               <div className="text-center bg-gradient-to-br from-yellow-900/40 to-yellow-800/40 rounded-lg p-4 border border-yellow-600/50">
-                <div className="text-4xl font-bold text-yellow-400 mb-2">116+</div>
+                <div className="text-4xl font-bold text-yellow-400 mb-2">170+</div>
                 <div className="text-sm text-yellow-300">{language === 'ar' ? 'نوع تحليل' : 'Analysis Types'}</div>
               </div>
               <div className="text-center bg-gradient-to-br from-yellow-900/40 to-yellow-800/40 rounded-lg p-4 border border-yellow-600/50">
