@@ -1,6 +1,7 @@
 """
 محرك التحليل المالي الشامل - FinClick.AI
-نظام ثوري للتحليل المالي مع 170+ نوع تحليل مالي
+نظام ثوري للتحليل المالي مع 170+ نوع تحليل مالي كاملة ومفصلة
+محدث بكود TypeScript الجديد من المستخدم
 """
 
 import numpy as np
@@ -19,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class FinancialData:
-    """بيانات القوائم المالية الشاملة"""
+    """بيانات القوائم المالية الشاملة - محدثة للمحرك الجديد 170+ تحليل"""
     # بيانات قائمة المركز المالي - الأصول المتداولة
     current_assets: float = 0.0
     cash: float = 0.0
@@ -48,6 +49,67 @@ class FinancialData:
     current_portion_long_term_debt: float = 0.0
     accrued_liabilities: float = 0.0
     deferred_revenue: float = 0.0
+    other_current_liabilities: float = 0.0
+    
+    # الخصوم غير المتداولة
+    non_current_liabilities: float = 0.0
+    long_term_debt: float = 0.0
+    deferred_tax_liabilities: float = 0.0
+    pension_liabilities: float = 0.0
+    other_non_current_liabilities: float = 0.0
+    
+    total_liabilities: float = 0.0
+    
+    # حقوق الملكية
+    shareholders_equity: float = 0.0
+    common_stock: float = 0.0
+    preferred_stock: float = 0.0
+    additional_paid_in_capital: float = 0.0
+    retained_earnings: float = 0.0
+    treasury_stock: float = 0.0
+    accumulated_other_comprehensive_income: float = 0.0
+    minority_interest: float = 0.0
+    
+    # بيانات قائمة الدخل
+    revenue: float = 0.0
+    cost_of_revenue: float = 0.0
+    gross_profit: float = 0.0
+    
+    operating_expenses: float = 0.0
+    selling_general_administrative: float = 0.0
+    research_development: float = 0.0
+    depreciation_amortization: float = 0.0
+    
+    operating_income: float = 0.0
+    interest_expense: float = 0.0
+    other_income_expense: float = 0.0
+    income_before_tax: float = 0.0
+    income_tax: float = 0.0
+    net_income: float = 0.0
+    
+    earnings_per_share: float = 0.0
+    diluted_eps: float = 0.0
+    shares: float = 0.0
+    diluted_shares: float = 0.0
+    
+    # بيانات قائمة التدفقات النقدية
+    operating_cash_flow: float = 0.0
+    capital_expenditures: float = 0.0
+    free_cash_flow: float = 0.0
+    dividends_paid: float = 0.0
+    stock_repurchased: float = 0.0
+    debt_repayment: float = 0.0
+    
+    # بيانات إضافية
+    market_cap: float = 0.0
+    stock_price: float = 0.0
+    book_value_per_share: float = 0.0
+    tangible_book_value: float = 0.0
+    working_capital: float = 0.0
+    
+    # بيانات للمقارنة (العام السابق)
+    previous_year_data: Optional[Dict[str, float]] = None
+    industry_averages: Optional[Dict[str, float]] = None
     other_current_liabilities: float = 0.0
     
     # الخصوم غير المتداولة
