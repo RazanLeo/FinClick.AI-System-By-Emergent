@@ -719,8 +719,8 @@ const AdvancedAnalysisPage = () => {
                 
                 <p className="text-gray-300 mb-8 text-lg">
                   {language === 'ar' 
-                    ? 'الذكاء الاصطناعي يعمل على تحليل بياناتك المالية باستخدام أكثر من 116 خوارزمية'
-                    : 'AI is analyzing your financial data using 116+ sophisticated algorithms'
+                    ? 'الذكاء الاصطناعي يعمل على تحليل بياناتك المالية باستخدام أكثر من 170 خوارزمية'
+                    : 'AI is analyzing your financial data using 170+ sophisticated algorithms'
                   }
                 </p>
                 
