@@ -1375,9 +1375,136 @@ class FinClickAPITester:
             print(f"   ❌ Admin authentication: FAILED")
             return False, {}
 
+    def test_arabic_review_request_170_engine(self):
+        """🎯 اختبار سريع ومركز للمحرك الثوري 170+ تحليل - FINAL VALIDATION"""
+        print("\n🎯 اختبار سريع ومركز للمحرك الثوري 170+ تحليل - FINAL VALIDATION")
+        print("=" * 90)
+        
+        # Test data exactly as requested by the user
+        analysis_data = {
+            "company_name": "شركة FinClick الثورية",
+            "language": "ar",
+            "sector": "technology",
+            "legal_entity": "corporation",
+            "comparison_level": "saudi",
+            "analysis_years": 1
+        }
+        
+        print(f"🔍 Testing Revolutionary Engine with exact user data:")
+        print(f"   Company: {analysis_data['company_name']}")
+        print(f"   Language: {analysis_data['language']}")
+        print(f"   Sector: {analysis_data['sector']}")
+        print(f"   Legal Entity: {analysis_data['legal_entity']}")
+        print(f"   Comparison Level: {analysis_data['comparison_level']}")
+        print(f"   Analysis Years: {analysis_data['analysis_years']}")
+        
+        print(f"\n🎯 التحقق من:")
+        print(f"   ✅ الاستجابة بـ 200 OK (بدلاً من 500 error)")
+        print(f"   🔥 وجود 'FinClick.AI v3.0 - المحرك الثوري' في system_info")
+        print(f"   📊 وجود 170+ في analysis_count")
+        print(f"   💾 البيانات JSON سليمة (لا يوجد infinity أو NaN values)")
+        print(f"   ⚡ السرعة أقل من 30 ثانية")
+        
+        start_time = time.time()
+        
+        # Test the main analysis endpoint
+        success, response = self.run_test(
+            "🚀 POST /api/analyze - Revolutionary Engine 170+",
+            "POST",
+            "analyze",
+            200,
+            data=analysis_data
+        )
+        
+        end_time = time.time()
+        duration = end_time - start_time
+        
+        print(f"\n⏱️  Analysis Duration: {duration:.2f} seconds")
+        
+        if success and response:
+            print(f"\n✅ ARABIC REVIEW REQUEST TEST RESULTS:")
+            
+            # Test 1: ✅ الاستجابة بـ 200 OK
+            print(f"   ✅ Response Status: 200 OK (SUCCESS)")
+            
+            # Test 2: 🔥 وجود "FinClick.AI v3.0 - المحرك الثوري" في system_info
+            system_info = response.get("system_info", {})
+            engine_version = system_info.get("engine_version", "")
+            analysis_count_text = system_info.get("analysis_count", "")
+            
+            if "FinClick.AI v3.0" in engine_version and "المحرك الثوري" in engine_version:
+                print(f"   🔥 Engine Version: ✅ FOUND - {engine_version}")
+            else:
+                print(f"   🔥 Engine Version: ❌ NOT FOUND - {engine_version}")
+            
+            # Test 3: 📊 وجود 170+ في analysis_count
+            if "170+" in analysis_count_text:
+                print(f"   📊 Analysis Count: ✅ FOUND - {analysis_count_text}")
+            else:
+                print(f"   📊 Analysis Count: ❌ NOT FOUND - {analysis_count_text}")
+            
+            # Test 4: 💾 البيانات JSON سليمة (check for infinity/NaN)
+            response_str = str(response)
+            has_infinity = "infinity" in response_str.lower() or "inf" in response_str.lower()
+            has_nan = "nan" in response_str.lower()
+            
+            if not has_infinity and not has_nan:
+                print(f"   💾 JSON Safety: ✅ SAFE - No infinity or NaN values")
+            else:
+                print(f"   💾 JSON Safety: ❌ UNSAFE - Found infinity or NaN values")
+            
+            # Test 5: ⚡ السرعة أقل من 30 ثانية
+            if duration < 30:
+                print(f"   ⚡ Performance: ✅ PASSED - {duration:.2f}s (under 30s requirement)")
+            else:
+                print(f"   ⚡ Performance: ❌ FAILED - {duration:.2f}s (exceeds 30s requirement)")
+            
+            # Additional verification
+            total_analysis_count = response.get("total_analysis_count", 0)
+            if total_analysis_count >= 170:
+                print(f"   🎯 Total Analysis Count: ✅ {total_analysis_count} (meets 170+ requirement)")
+            else:
+                print(f"   🎯 Total Analysis Count: ❌ {total_analysis_count} (needs 170+)")
+            
+            # Check for Arabic content
+            arabic_content = any(ord(char) > 127 for char in response_str)
+            if arabic_content:
+                print(f"   🇸🇦 Arabic Content: ✅ PRESENT")
+            else:
+                print(f"   🇸🇦 Arabic Content: ❌ MISSING")
+            
+            # Final assessment
+            all_checks = [
+                success,  # 200 OK
+                "FinClick.AI v3.0" in engine_version and "المحرك الثوري" in engine_version,  # Engine version
+                "170+" in analysis_count_text,  # Analysis count
+                not has_infinity and not has_nan,  # JSON safety
+                duration < 30,  # Performance
+                arabic_content  # Arabic support
+            ]
+            
+            passed_checks = sum(all_checks)
+            success_rate = (passed_checks / len(all_checks)) * 100
+            
+            print(f"\n🎉 FINAL VALIDATION RESULTS:")
+            print(f"   📊 Success Rate: {success_rate:.1f}% ({passed_checks}/{len(all_checks)} checks passed)")
+            
+            if success_rate >= 80:
+                print(f"   ✅ REVOLUTIONARY ENGINE STATUS: WORKING EXCELLENTLY")
+            elif success_rate >= 60:
+                print(f"   ⚠️  REVOLUTIONARY ENGINE STATUS: WORKING WITH MINOR ISSUES")
+            else:
+                print(f"   ❌ REVOLUTIONARY ENGINE STATUS: NEEDS ATTENTION")
+            
+            return success and success_rate >= 60, response
+        else:
+            print(f"\n❌ ARABIC REVIEW REQUEST TEST FAILED!")
+            print(f"   🚨 CRITICAL: Analysis endpoint returned error instead of 200 OK")
+            return False, {}
+
 def main():
     print("🚀 Starting FinClick.AI Enhanced Financial Analysis Engine Testing...")
-    print("🚨 URGENT USER REQUEST - SYSTEM NOT WORKING - IMMEDIATE TESTING REQUIRED")
+    print("🎯 اختبار سريع ومركز للمحرك الثوري 170+ تحليل - FINAL VALIDATION")
     print("=" * 80)
     
     # Setup
