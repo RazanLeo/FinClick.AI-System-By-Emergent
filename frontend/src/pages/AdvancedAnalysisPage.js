@@ -266,16 +266,16 @@ const AdvancedAnalysisPage = () => {
         setAnalysisProgress(progressSteps[i]);
       }
 
-      // إرسال طلب التحليل
+      // إرسال طلب التحليل مع القيم الافتراضية
       const analysisData = {
         company_name: formData.company_name,
-        language: formData.language,
-        sector: formData.sector,
-        activity: formData.activity || 'عام',
-        legal_entity: formData.legal_entity || 'limited_liability', 
+        language: formData.language || 'ar',
+        sector: formData.sector || 'technology',
+        activity: formData.activity || 'تطوير التكنولوجيا المالية',
+        legal_entity: formData.legal_entity || 'corporation', 
         comparison_level: formData.comparison_level || 'saudi',
-        analysis_years: formData.analysis_years,
-        analysis_types: formData.analysis_types
+        analysis_years: formData.analysis_years || 1,
+        analysis_types: formData.analysis_types || ['comprehensive']
       };
 
       const response = await axios.post(`${API}/analyze`, analysisData, {
