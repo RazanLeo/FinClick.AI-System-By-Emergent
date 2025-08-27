@@ -1199,7 +1199,7 @@ class FinClickAPITester:
             if request_info:
                 print(f"   📝 Request Info Verified:")
                 print(f"      - Company: {request_info.get('company_name', 'N/A')}")
-                print(f"      - Language: {request_info.get('analysis_language', 'N/A')}")
+                print(f"      - Language: {request_info.get('language', 'N/A')}")
                 print(f"      - Sector: {request_info.get('sector', 'N/A')}")
                 print(f"      - User: {request_info.get('user_email', 'N/A')}")
             
