@@ -154,64 +154,46 @@ class FinancialAnalysisEngine:
     
     def working_capital_ratio(self) -> float:
         """نسبة رأس المال العامل"""
-        if self.data.total_assets == 0:
-            return 0.0
-        return self.working_capital() / self.data.total_assets
+        return safe_divide(self.working_capital(), self.data.total_assets, 0.0)
     
     def operating_cash_flow_ratio(self) -> float:
         """نسبة التدفق النقدي التشغيلي"""
-        if self.data.current_liabilities == 0:
-            return 0.0
-        return self.data.operating_cash_flow / self.data.current_liabilities
+        return safe_divide(self.data.operating_cash_flow, self.data.current_liabilities, 0.0)
     
     def defensive_interval_ratio(self) -> float:
         """نسبة الفترة الدفاعية"""
-        if self.data.operating_expenses == 0:
-            return 0.0
-        daily_expenses = self.data.operating_expenses / 365
-        return (self.data.cash + self.data.marketable_securities + 
-                self.data.accounts_receivable) / daily_expenses
+        daily_expenses = safe_divide(self.data.operating_expenses, 365, 1.0)
+        liquid_assets = self.data.cash + self.data.marketable_securities + self.data.accounts_receivable
+        return safe_divide(liquid_assets, daily_expenses, 0.0)
     
     def critical_liquidity_ratio(self) -> float:
         """نسبة السيولة الحرجة"""
-        if self.data.current_liabilities == 0:
-            return float('inf')
-        return (self.data.cash + self.data.accounts_receivable) / self.data.current_liabilities
+        return safe_divide(self.data.cash + self.data.accounts_receivable, self.data.current_liabilities, 0.0)
     
     def cash_conversion_cycle(self) -> float:
         """دورة التحويل النقدي"""
-        if self.data.cost_of_revenue == 0 or self.data.revenue == 0:
-            return 0.0
-        days_inventory = (self.data.inventory / self.data.cost_of_revenue) * 365
-        days_receivables = (self.data.accounts_receivable / self.data.revenue) * 365
-        days_payables = (self.data.accounts_payable / self.data.cost_of_revenue) * 365
+        days_inventory = safe_divide(self.data.inventory * 365, self.data.cost_of_revenue, 0.0)
+        days_receivables = safe_divide(self.data.accounts_receivable * 365, self.data.revenue, 0.0)
+        days_payables = safe_divide(self.data.accounts_payable * 365, self.data.cost_of_revenue, 0.0)
         return days_inventory + days_receivables - days_payables
     
     def liquid_assets_ratio(self) -> float:
         """نسبة الأصول السائلة"""
-        if self.data.total_assets == 0:
-            return 0.0
-        return (self.data.cash + self.data.marketable_securities) / self.data.total_assets
+        return safe_divide(self.data.cash + self.data.marketable_securities, self.data.total_assets, 0.0)
     
     def cash_turnover_ratio(self) -> float:
         """معدل دوران النقدية"""
-        if self.data.cash == 0:
-            return 0.0
-        return self.data.revenue / self.data.cash
+        return safe_divide(self.data.revenue, self.data.cash, 0.0)
     
     def cash_coverage_ratio(self) -> float:
         """نسبة التغطية النقدية"""
-        if self.data.interest_expense == 0:
-            return float('inf')
-        return (self.data.operating_income + self.data.depreciation_amortization) / self.data.interest_expense
+        return safe_divide(self.data.operating_income + self.data.depreciation_amortization, self.data.interest_expense, 0.0)
     
     def modified_liquidity_ratio(self) -> float:
         """نسبة السيولة المعدلة"""
         numerator = self.data.current_assets - self.data.inventory - self.data.prepaid_expenses
         denominator = self.data.current_liabilities - self.data.deferred_revenue
-        if denominator == 0:
-            return float('inf')
-        return numerator / denominator
+        return safe_divide(numerator, denominator, 0.0)
 
     # =====================================
     # 2. نسب النشاط والكفاءة (18 نوع)
