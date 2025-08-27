@@ -561,7 +561,7 @@ async def get_comparison_levels():
 
 @api_router.get("/analysis-types")
 async def get_analysis_types():
-    """جميع أنواع التحليل المالي - 116 نوع"""
+    """جميع أنواع التحليل المالي الثوري الجديد - 170+ نوع"""
     
     analysis_types = {
         "basic_classical": {
