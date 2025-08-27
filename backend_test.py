@@ -1,10 +1,11 @@
 import requests
 import sys
 import json
+import time
 from datetime import datetime
 
 class FinClickAPITester:
-    def __init__(self, base_url="http://localhost:8001/api"):
+    def __init__(self, base_url="https://finclick-ai-3.preview.emergentagent.com/api"):
         self.base_url = base_url
         self.token = None
         self.tests_run = 0
