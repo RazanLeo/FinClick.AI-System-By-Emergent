@@ -1053,7 +1053,7 @@ class FinancialAnalysisEngine:
     
     def _convert_to_new_format(self):
         """تحويل البيانات إلى التنسيق الجديد للمحرك 170+"""
-        from .financial_analysis_engine_170 import FinancialData as NewFinancialData
+        from financial_analysis_engine_170 import FinancialData as NewFinancialData
         
         return NewFinancialData(
             # بيانات قائمة المركز المالي
