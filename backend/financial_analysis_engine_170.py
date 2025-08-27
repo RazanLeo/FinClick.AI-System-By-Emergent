@@ -201,119 +201,83 @@ class FinancialAnalysisEngine:
     
     def inventory_turnover(self) -> float:
         """معدل دوران المخزون"""
-        if self.data.inventory == 0:
-            return 0.0
-        return self.data.cost_of_revenue / self.data.inventory
+        return safe_divide(self.data.cost_of_revenue, self.data.inventory, 0.0)
     
     def days_inventory_outstanding(self) -> float:
         """أيام المخزون"""
         turnover = self.inventory_turnover()
-        if turnover == 0:
-            return 0.0
-        return 365 / turnover
+        return safe_divide(365, turnover, 0.0)
     
     def receivables_turnover(self) -> float:
         """معدل دوران المدينين"""
-        if self.data.accounts_receivable == 0:
-            return 0.0
-        return self.data.revenue / self.data.accounts_receivable
+        return safe_divide(self.data.revenue, self.data.accounts_receivable, 0.0)
     
     def days_sales_outstanding(self) -> float:
         """فترة التحصيل"""
         turnover = self.receivables_turnover()
-        if turnover == 0:
-            return 0.0
-        return 365 / turnover
+        return safe_divide(365, turnover, 0.0)
     
     def payables_turnover(self) -> float:
         """معدل دوران الدائنين"""
-        if self.data.accounts_payable == 0:
-            return 0.0
-        return self.data.cost_of_revenue / self.data.accounts_payable
+        return safe_divide(self.data.cost_of_revenue, self.data.accounts_payable, 0.0)
     
     def days_payables_outstanding(self) -> float:
         """فترة السداد"""
         turnover = self.payables_turnover()
-        if turnover == 0:
-            return 0.0
-        return 365 / turnover
+        return safe_divide(365, turnover, 0.0)
     
     def asset_turnover(self) -> float:
         """معدل دوران الأصول"""
-        if self.data.total_assets == 0:
-            return 0.0
-        return self.data.revenue / self.data.total_assets
+        return safe_divide(self.data.revenue, self.data.total_assets, 0.0)
     
     def fixed_asset_turnover(self) -> float:
         """معدل دوران الأصول الثابتة"""
         net_fixed_assets = self.data.property_plant_equipment - self.data.accumulated_depreciation
-        if net_fixed_assets == 0:
-            return 0.0
-        return self.data.revenue / net_fixed_assets
+        return safe_divide(self.data.revenue, net_fixed_assets, 0.0)
     
     def current_asset_turnover(self) -> float:
         """معدل دوران الأصول المتداولة"""
-        if self.data.current_assets == 0:
-            return 0.0
-        return self.data.revenue / self.data.current_assets
+        return safe_divide(self.data.revenue, self.data.current_assets, 0.0)
     
     def working_capital_turnover(self) -> float:
         """معدل دوران رأس المال العامل"""
         wc = self.working_capital()
-        if wc == 0:
-            return 0.0
-        return self.data.revenue / wc
+        return safe_divide(self.data.revenue, wc, 0.0)
     
     def cash_management_efficiency(self) -> float:
         """كفاءة إدارة النقدية"""
-        if self.data.revenue == 0:
-            return 0.0
-        return self.data.operating_cash_flow / self.data.revenue
+        return safe_divide(self.data.operating_cash_flow, self.data.revenue, 0.0)
     
     def asset_efficiency_ratio(self) -> float:
         """نسبة كفاءة الأصول"""
-        if self.data.total_assets == 0:
-            return 0.0
-        return self.data.gross_profit / self.data.total_assets
+        return safe_divide(self.data.gross_profit, self.data.total_assets, 0.0)
     
     def equity_turnover(self) -> float:
         """معدل دوران حقوق الملكية"""
-        if self.data.shareholders_equity == 0:
-            return 0.0
-        return self.data.revenue / self.data.shareholders_equity
+        return safe_divide(self.data.revenue, self.data.shareholders_equity, 0.0)
     
     def asset_utilization(self) -> float:
         """معدل استخدام الأصول"""
-        if self.data.total_assets == 0:
-            return 0.0
-        return self.data.operating_income / self.data.total_assets
+        return safe_divide(self.data.operating_income, self.data.total_assets, 0.0)
     
     def capital_employed_efficiency(self) -> float:
         """كفاءة رأس المال المستثمر"""
         capital_employed = self.data.total_assets - self.data.current_liabilities
-        if capital_employed == 0:
-            return 0.0
-        return self.data.revenue / capital_employed
+        return safe_divide(self.data.revenue, capital_employed, 0.0)
     
     def intangible_asset_turnover(self) -> float:
         """معدل دوران الأصول غير الملموسة"""
-        if self.data.intangible_assets == 0:
-            return 0.0
-        return self.data.revenue / self.data.intangible_assets
+        return safe_divide(self.data.revenue, self.data.intangible_assets, 0.0)
     
     def collection_efficiency(self) -> float:
         """كفاءة التحصيل"""
-        monthly_revenue = self.data.revenue / 12
-        if monthly_revenue == 0:
-            return 0.0
-        return 1 - (self.data.accounts_receivable / monthly_revenue)
+        monthly_revenue = safe_divide(self.data.revenue, 12, 1.0)
+        return 1 - safe_divide(self.data.accounts_receivable, monthly_revenue, 0.0)
     
     def operating_asset_turnover(self) -> float:
         """معدل دوران إجمالي الأصول التشغيلية"""
         operating_assets = self.data.total_assets - self.data.cash - self.data.marketable_securities
-        if operating_assets == 0:
-            return 0.0
-        return self.data.revenue / operating_assets
+        return safe_divide(self.data.revenue, operating_assets, 0.0)
 
     # =====================================
     # 3. نسب الربحية (20 نوع)
