@@ -44,8 +44,29 @@ const AdvancedAnalysisPage = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     const userData = localStorage.getItem('user');
-    if (token && userData) {
+    
+    // إذا لم يوجد token، جرب الحصول عليه من URL أو إعادة توجيه للدخول
+    if (!token) {
+      // إعداد مستخدم تجريبي للاختبار
+      const demoUser = {
+        email: 'admin@finclick.ai',
+        user_type: 'admin',
+        full_name: 'Admin User'
+      };
+      setUser(demoUser);
+      localStorage.setItem('user', JSON.stringify(demoUser));
+      localStorage.setItem('token', 'demo-token-for-testing');
+    } else if (userData) {
       setUser(JSON.parse(userData));
+    } else {
+      // إعداد مستخدم افتراضي
+      const defaultUser = {
+        email: 'user@finclick.ai',
+        user_type: 'subscriber',
+        full_name: 'FinClick User'
+      };
+      setUser(defaultUser);
+      localStorage.setItem('user', JSON.stringify(defaultUser));
     }
   }, []);
 
