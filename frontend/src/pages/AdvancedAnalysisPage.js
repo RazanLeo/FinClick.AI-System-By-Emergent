@@ -23,12 +23,12 @@ const AdvancedAnalysisPage = () => {
   const [formData, setFormData] = useState({
     company_name: '',
     language: 'ar',
-    sector: '',
+    sector: 'technology', // قيمة افتراضية
     activity: '',
-    legal_entity: '',
-    comparison_level: '',
-    analysis_years: 1,
-    analysis_types: ['comprehensive']
+    legal_entity: 'corporation', // قيمة افتراضية  
+    comparison_level: 'saudi', // قيمة افتراضية
+    analysis_years: 1, // قيمة افتراضية
+    analysis_types: ['comprehensive'] // قيمة افتراضية
   });
   
   // 📁 إدارة الملفات
