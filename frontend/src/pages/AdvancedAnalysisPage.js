@@ -361,8 +361,8 @@ const AdvancedAnalysisPage = () => {
             
             <p className="text-lg text-gray-300 mb-6 max-w-4xl mx-auto leading-relaxed">
               {language === 'ar' 
-                ? 'نظام ذكي ثوري للتحليل المالي الشامل مع الذكاء الاصطناعي - تحليل احترافي لجميع القوائم المالية'
-                : 'Revolutionary intelligent system for comprehensive financial analysis with AI - Professional analysis for all financial statements'
+                ? 'منصة FinClick.AI الثورية للتحليل المالي الذكي المدعوم بالذكاء الاصطناعي. نقدم لك 170+ نوع تحليل مالي شامل ومتكامل مع تقارير تفاعلية وتوصيات استراتيجية مخصصة لاحتياجاتك.'
+                : 'FinClick.AI Revolutionary platform for intelligent financial analysis powered by AI. We provide you with 170+ comprehensive and integrated financial analysis types with interactive reports and strategic recommendations tailored to your needs.'
               }
             </p>
             
