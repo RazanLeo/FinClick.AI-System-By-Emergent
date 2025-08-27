@@ -1091,11 +1091,13 @@ class FinClickAPITester:
         
         print(f"🔍 Testing NEW Revolutionary 170+ Analysis Engine:")
         print(f"   Company: {analysis_data['company_name']}")
-        print(f"   Language: {analysis_data['analysis_language']}")
+        print(f"   Language: {analysis_data['language']}")
         print(f"   Sector: {analysis_data['sector']}")
+        print(f"   Activity: {analysis_data['activity']}")
         print(f"   Legal Entity: {analysis_data['legal_entity']}")
         print(f"   Comparison Level: {analysis_data['comparison_level']}")
         print(f"   Analysis Years: {analysis_data['analysis_years']}")
+        print(f"   Analysis Types: {analysis_data['analysis_types']}")
         print(f"   Expected: 170+ analysis types (updated from 116+)")
         print(f"   Expected Categories: 15 categories (updated from 5)")
         
