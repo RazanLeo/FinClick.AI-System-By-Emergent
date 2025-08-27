@@ -26,7 +26,7 @@ import math
 from analysis_engine import FinancialAnalysisEngine
 from ocr_data_parser import financial_parser
 from ai_agents import ai_agents
-from revolutionary_analysis_engine import revolutionary_engine, AnalysisConfiguration
+from comprehensive_financial_analyzer import ComprehensiveFinancialAnalyzer
 
 def make_json_safe(obj):
     """Recursively make an object JSON-safe by replacing inf and nan values"""
