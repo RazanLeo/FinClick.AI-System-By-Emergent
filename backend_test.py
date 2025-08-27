@@ -1533,8 +1533,12 @@ def main():
         print("\n📍 PHASE 8: REVOLUTIONARY ANALYSIS ENGINE TESTING")
         print("=" * 80)
         
-        # Test 8.1: Revolutionary Analysis Engine
-        print("\n🔹 Testing Revolutionary Analysis Engine (116+ types)")
+        # Test 8.0: NEW Revolutionary 170+ Analysis Engine (PRIORITY TEST)
+        print("\n🚀 Testing NEW Revolutionary 170+ Analysis Engine (PRIORITY)")
+        tester.test_revolutionary_170_analysis_engine()
+        
+        # Test 8.1: Revolutionary Analysis Engine (Legacy)
+        print("\n🔹 Testing Revolutionary Analysis Engine (116+ types - Legacy)")
         tester.test_revolutionary_analysis_engine()
         
         # Test 8.2: Performance Testing (Under 30 seconds)
