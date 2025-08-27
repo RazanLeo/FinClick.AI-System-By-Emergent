@@ -120,21 +120,15 @@ class FinancialAnalysisEngine:
     
     def current_ratio(self) -> float:
         """النسبة الجارية"""
-        if self.data.current_liabilities == 0:
-            return 999999.0  # Use large number instead of inf
-        return self.data.current_assets / self.data.current_liabilities
+        return safe_divide(self.data.current_assets, self.data.current_liabilities, 0.0)
     
     def quick_ratio(self) -> float:
         """النسبة السريعة"""
-        if self.data.current_liabilities == 0:
-            return float('inf')
-        return (self.data.current_assets - self.data.inventory) / self.data.current_liabilities
+        return safe_divide(self.data.current_assets - self.data.inventory, self.data.current_liabilities, 0.0)
     
     def cash_ratio(self) -> float:
         """نسبة النقدية"""
-        if self.data.current_liabilities == 0:
-            return float('inf')
-        return self.data.cash / self.data.current_liabilities
+        return safe_divide(self.data.cash, self.data.current_liabilities, 0.0)
     
     def absolute_cash_ratio(self) -> float:
         """نسبة النقدية المطلقة"""
