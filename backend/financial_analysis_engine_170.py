@@ -8,6 +8,16 @@ from typing import Dict, List, Any, Optional
 from dataclasses import dataclass
 
 
+def safe_divide(numerator: float, denominator: float, default: float = 0.0) -> float:
+    """Safe division that handles zero denominators and returns JSON-safe values"""
+    if denominator == 0:
+        return 999999.0 if numerator > 0 else default
+    result = numerator / denominator
+    if math.isinf(result) or math.isnan(result):
+        return 999999.0 if result > 0 else -999999.0
+    return result
+
+
 @dataclass
 class FinancialData:
     """بيانات القوائم المالية الشاملة"""
