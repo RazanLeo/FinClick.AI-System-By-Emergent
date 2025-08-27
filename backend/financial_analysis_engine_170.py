@@ -111,7 +111,7 @@ class FinancialAnalysisEngine:
     def current_ratio(self) -> float:
         """النسبة الجارية"""
         if self.data.current_liabilities == 0:
-            return float('inf')
+            return 999999.0  # Use large number instead of inf
         return self.data.current_assets / self.data.current_liabilities
     
     def quick_ratio(self) -> float:
