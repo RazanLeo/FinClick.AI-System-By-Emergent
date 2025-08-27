@@ -1080,11 +1080,13 @@ class FinClickAPITester:
         # Test data exactly as requested by the user
         analysis_data = {
             "company_name": "شركة FinClick للاختبار الثوري",
-            "analysis_language": "ar",
+            "language": "ar",
             "sector": "technology",
+            "activity": "تطوير التكنولوجيا المالية الثورية",
             "legal_entity": "corporation",
             "comparison_level": "saudi",
-            "analysis_years": 1
+            "analysis_years": 1,
+            "analysis_types": ["comprehensive"]
         }
         
         print(f"🔍 Testing NEW Revolutionary 170+ Analysis Engine:")
