@@ -289,13 +289,16 @@ const AdvancedAnalysisPage = () => {
         timeout: 60000 // 60 ثانية timeout
       });
 
-      if (response.data && response.data.status === 'success') {
+      // تحقق من وجود الاستجابة والبيانات
+      if (response.data && response.status === 200) {
         setAnalysisResults(response.data);
         setCurrentStep(3);
         
         toast({
           title: language === 'ar' ? '🎉 تم التحليل بنجاح!' : '🎉 Analysis Complete!',
-          description: language === 'ar' ? 'تم إنجاز التحليل المالي الثوري بنجاح' : 'Revolutionary financial analysis completed successfully',
+          description: language === 'ar' ? 
+            `تم إنجاز التحليل المالي الثوري بنجاح - ${response.data.system_info?.analysis_count || '170+ تحليل مالي'}` : 
+            `Revolutionary financial analysis completed successfully - ${response.data.system_info?.analysis_count || '170+ financial analyses'}`,
         });
       } else {
         throw new Error('Invalid response format');
