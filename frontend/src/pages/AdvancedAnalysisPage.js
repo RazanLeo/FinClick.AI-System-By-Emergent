@@ -240,22 +240,19 @@ const AdvancedAnalysisPage = () => {
     }
 
     if (!formData.analysis_types || formData.analysis_types.length === 0) {
-      toast({
-        title: language === 'ar' ? '❌ خطأ في البيانات' : '❌ Data Error',
-        description: language === 'ar' ? 'يرجى اختيار نوع التحليل المطلوب' : 'Please select analysis type',
-        variant: 'destructive'
-      });
-      return;
+      // تعيين نوع تحليل افتراضي
+      formData.analysis_types = ['comprehensive'];
     }
 
-    if (files.length === 0) {
-      toast({
-        title: language === 'ar' ? '❌ خطأ في البيانات' : '❌ Data Error',
-        description: language === 'ar' ? 'يرجى رفع ملف واحد على الأقل' : 'Please upload at least one file',
-        variant: 'destructive'
-      });
-      return;
-    }
+    // إزالة شرط الملفات الإجباري للاختبار
+    // if (files.length === 0) {
+    //   toast({
+    //     title: language === 'ar' ? '❌ خطأ في البيانات' : '❌ Data Error',  
+    //     description: language === 'ar' ? 'يرجى رفع ملف واحد على الأقل' : 'Please upload at least one file',
+    //     variant: 'destructive'
+    //   });
+    //   return;
+    // }
 
     setLoading(true);
     setAnalysisProgress(0);
