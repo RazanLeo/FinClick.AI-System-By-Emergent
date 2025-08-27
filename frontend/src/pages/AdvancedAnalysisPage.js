@@ -356,7 +356,7 @@ const AdvancedAnalysisPage = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent leading-normal">
-              {language === 'ar' ? 'نظام التحليل المالي الذكي الثوري' : 'Revolutionary Intelligent Financial Analysis System'}
+              {language === 'ar' ? 'نظام FinClick.AI للتحليل المالي الذكي الثوري' : 'FinClick.AI Revolutionary Intelligent Financial Analysis System'}
             </h1>
             
             <p className="text-lg text-gray-300 mb-6 max-w-4xl mx-auto leading-relaxed">
