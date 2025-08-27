@@ -132,16 +132,13 @@ class FinancialAnalysisEngine:
     
     def absolute_cash_ratio(self) -> float:
         """نسبة النقدية المطلقة"""
-        if self.data.current_liabilities == 0:
-            return float('inf')
-        return (self.data.cash + self.data.marketable_securities) / self.data.current_liabilities
+        return safe_divide(self.data.cash + self.data.marketable_securities, self.data.current_liabilities, 0.0)
     
     def super_quick_ratio(self) -> float:
         """نسبة التداول السريعة جداً"""
-        if self.data.current_liabilities == 0:
-            return float('inf')
-        return (self.data.cash + self.data.marketable_securities + 
-                self.data.accounts_receivable * 0.8) / self.data.current_liabilities
+        numerator = (self.data.cash + self.data.marketable_securities + 
+                    self.data.accounts_receivable * 0.8)
+        return safe_divide(numerator, self.data.current_liabilities, 0.0)
     
     def working_capital(self) -> float:
         """رأس المال العامل"""
