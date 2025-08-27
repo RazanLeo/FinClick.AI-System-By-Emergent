@@ -15,7 +15,7 @@ from dataclasses import dataclass
 import math
 
 # استيراد المحرك الجديد مع 170+ تحليل
-from .financial_analysis_engine_170 import FinancialAnalysisEngine as NewFinancialAnalysisEngine
+from financial_analysis_engine_170 import FinancialAnalysisEngine as NewFinancialAnalysisEngine
 
 # إعداد السجلات
 logging.basicConfig(level=logging.INFO)
