@@ -66,9 +66,11 @@ class ArabicReviewTester:
         print(f"   Company: {analysis_data['company_name']}")
         print(f"   Language: {analysis_data['language']}")
         print(f"   Sector: {analysis_data['sector']}")
+        print(f"   Activity: {analysis_data['activity']}")
         print(f"   Legal Entity: {analysis_data['legal_entity']}")
         print(f"   Comparison Level: {analysis_data['comparison_level']}")
         print(f"   Analysis Years: {analysis_data['analysis_years']}")
+        print(f"   Analysis Types: {analysis_data['analysis_types']}")
         
         url = f"{self.base_url}/analyze"
         headers = {
