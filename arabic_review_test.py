@@ -109,9 +109,11 @@ class ArabicReviewTester:
             "company_name": "شركة FinClick الشاملة الثورية",
             "language": "ar", 
             "sector": "technology",
+            "activity": "تطوير التكنولوجيا المالية الثورية",
             "legal_entity": "corporation",
             "comparison_level": "saudi",
-            "analysis_years": 1
+            "analysis_years": 1,
+            "analysis_types": ["comprehensive"]
         }
         
         print(f"🔍 Testing Three Critical Fixes:")
