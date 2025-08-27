@@ -711,7 +711,7 @@ async def analyze_financial_data(
             **analysis_results,
             "request_info": {
                 "company_name": request.company_name,
-                "analysis_language": request.analysis_language,
+                "language": request.language,
                 "sector": request.sector,
                 "legal_entity": request.legal_entity,
                 "comparison_level": request.comparison_level,
