@@ -744,6 +744,9 @@ async def analyze_financial_data(
             }
         }
         
+        # تطبيق JSON safety على الاستجابة الكاملة
+        safe_response = make_json_safe(enhanced_response)
+        
         logger.info(f"✅ اكتمل التحليل الثوري بنجاح - 170+ تحليل مالي لشركة: {request.company_name}")
         return enhanced_response
         
