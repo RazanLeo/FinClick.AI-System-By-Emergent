@@ -17,6 +17,14 @@ def safe_divide(numerator: float, denominator: float, default: float = 0.0) -> f
         return 999999.0 if result > 0 else -999999.0
     return result
 
+def make_json_safe(value: float) -> float:
+    """Make a float value JSON-safe by replacing inf and nan"""
+    if math.isinf(value):
+        return 999999.0 if value > 0 else -999999.0
+    if math.isnan(value):
+        return 0.0
+    return value
+
 
 @dataclass
 class FinancialData:
