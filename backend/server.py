@@ -22,10 +22,26 @@ import pandas as pd
 from PIL import Image
 import pytesseract
 import PyPDF2
+import math
 from analysis_engine import FinancialAnalysisEngine
 from ocr_data_parser import financial_parser
 from ai_agents import ai_agents
 from revolutionary_analysis_engine import revolutionary_engine, AnalysisConfiguration
+
+def make_json_safe(obj):
+    """Recursively make an object JSON-safe by replacing inf and nan values"""
+    if isinstance(obj, dict):
+        return {k: make_json_safe(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [make_json_safe(item) for item in obj]
+    elif isinstance(obj, float):
+        if math.isinf(obj):
+            return 999999.0 if obj > 0 else -999999.0
+        elif math.isnan(obj):
+            return 0.0
+        return obj
+    else:
+        return obj
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
