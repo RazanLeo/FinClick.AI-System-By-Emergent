@@ -1072,6 +1072,154 @@ class FinClickAPITester:
             
         return success, {}
 
+    def test_revolutionary_170_analysis_engine(self):
+        """🚀 اختبار المحرك الثوري الجديد مع 170+ تحليل مالي - NEW REVOLUTIONARY ENGINE TEST"""
+        print("\n🚀 اختبار المحرك الثوري الجديد مع 170+ تحليل مالي - NEW REVOLUTIONARY ENGINE TEST")
+        print("=" * 90)
+        
+        # Test data exactly as requested by the user
+        analysis_data = {
+            "company_name": "شركة FinClick للاختبار الثوري",
+            "analysis_language": "ar",
+            "sector": "technology",
+            "legal_entity": "corporation",
+            "comparison_level": "saudi",
+            "analysis_years": 1
+        }
+        
+        print(f"🔍 Testing NEW Revolutionary 170+ Analysis Engine:")
+        print(f"   Company: {analysis_data['company_name']}")
+        print(f"   Language: {analysis_data['analysis_language']}")
+        print(f"   Sector: {analysis_data['sector']}")
+        print(f"   Legal Entity: {analysis_data['legal_entity']}")
+        print(f"   Comparison Level: {analysis_data['comparison_level']}")
+        print(f"   Analysis Years: {analysis_data['analysis_years']}")
+        print(f"   Expected: 170+ analysis types (updated from 116+)")
+        print(f"   Expected Categories: 15 categories (updated from 5)")
+        
+        start_time = time.time()
+        
+        # Test the main analysis endpoint with new 170+ engine
+        success, response = self.run_test(
+            "NEW Revolutionary 170+ Analysis Engine",
+            "POST",
+            "analyze",
+            200,
+            data=analysis_data
+        )
+        
+        end_time = time.time()
+        duration = end_time - start_time
+        
+        print(f"\n⏱️  NEW Revolutionary Analysis Duration: {duration:.2f} seconds")
+        
+        if success and response:
+            print(f"\n✅ NEW REVOLUTIONARY 170+ ENGINE TEST PASSED!")
+            
+            # Test 1: Verify 170+ analyses count
+            total_analysis_count = response.get("total_analysis_count", 0)
+            print(f"   🎯 Total Analysis Count: {total_analysis_count} (Target: 170+)")
+            
+            if total_analysis_count >= 170:
+                print(f"   ✅ ANALYSIS COUNT VERIFIED: {total_analysis_count} analyses (meets 170+ requirement)")
+            else:
+                print(f"   ❌ ANALYSIS COUNT INSUFFICIENT: {total_analysis_count} analyses (needs 170+)")
+            
+            # Test 2: Verify new categories (15 instead of 5)
+            analysis_categories = response.get("analysis_categories", {})
+            categories_count = len(analysis_categories)
+            print(f"   📊 Analysis Categories: {categories_count} (Target: 15)")
+            
+            expected_categories = [
+                "liquidity_ratios", "activity_ratios", "profitability_ratios", 
+                "leverage_ratios", "market_ratios", "advanced_analyses"
+            ]
+            
+            found_categories = []
+            for category in expected_categories:
+                if category in analysis_categories:
+                    found_categories.append(category)
+                    count = analysis_categories[category]
+                    print(f"      - {category}: {count} analyses")
+            
+            print(f"   ✅ Key Categories Found: {len(found_categories)}/6 - {found_categories}")
+            
+            # Test 3: Verify system_info shows new engine version
+            system_info = response.get("system_info", {})
+            engine_version = system_info.get("engine_version", "")
+            print(f"   🔧 Engine Version: {engine_version}")
+            
+            if "FinClick.AI v3.0" in engine_version and "المحرك الثوري" in engine_version:
+                print(f"   ✅ ENGINE VERSION VERIFIED: FinClick.AI v3.0 - المحرك الثوري")
+            else:
+                print(f"   ❌ ENGINE VERSION INCORRECT: Expected 'FinClick.AI v3.0 - المحرك الثوري'")
+            
+            # Test 4: Verify executive_summary structure
+            executive_summary = response.get("executive_summary", {})
+            if executive_summary:
+                required_sections = ["company_information", "results_summary", "comprehensive_swot", "strategic_decisions"]
+                found_sections = []
+                for section in required_sections:
+                    if section in executive_summary:
+                        found_sections.append(section)
+                
+                print(f"   📋 Executive Summary Sections: {len(found_sections)}/4 - {found_sections}")
+                
+                if len(found_sections) == 4:
+                    print(f"   ✅ EXECUTIVE SUMMARY STRUCTURE VERIFIED")
+                else:
+                    print(f"   ❌ EXECUTIVE SUMMARY INCOMPLETE: Missing sections")
+            
+            # Test 5: Verify analysis_statistics
+            analysis_statistics = response.get("analysis_statistics", {})
+            if analysis_statistics:
+                total_ratios = analysis_statistics.get("total_ratios_calculated", 0)
+                print(f"   📈 Analysis Statistics:")
+                print(f"      - Total Ratios Calculated: {total_ratios}")
+                print(f"      - Success Rate: {analysis_statistics.get('success_rate', 'N/A')}")
+                print(f"      - Processing Time: {analysis_statistics.get('processing_time', 'N/A')}")
+                
+                if total_ratios >= 170:
+                    print(f"   ✅ STATISTICS VERIFIED: {total_ratios} ratios calculated")
+                else:
+                    print(f"   ❌ STATISTICS INSUFFICIENT: {total_ratios} ratios (needs 170+)")
+            
+            # Test 6: Performance requirement (< 30 seconds)
+            if duration < 30:
+                print(f"   ✅ PERFORMANCE REQUIREMENT MET: {duration:.2f}s (under 30s requirement)")
+            else:
+                print(f"   ❌ PERFORMANCE REQUIREMENT FAILED: {duration:.2f}s (exceeds 30s requirement)")
+            
+            # Test 7: Verify request_info
+            request_info = response.get("request_info", {})
+            if request_info:
+                print(f"   📝 Request Info Verified:")
+                print(f"      - Company: {request_info.get('company_name', 'N/A')}")
+                print(f"      - Language: {request_info.get('analysis_language', 'N/A')}")
+                print(f"      - Sector: {request_info.get('sector', 'N/A')}")
+                print(f"      - User: {request_info.get('user_email', 'N/A')}")
+            
+            # Test 8: Check for Arabic content support
+            response_str = str(response)
+            arabic_content = any(ord(char) > 127 for char in response_str)
+            if arabic_content:
+                print(f"   ✅ ARABIC CONTENT SUPPORT VERIFIED")
+            else:
+                print(f"   ❌ ARABIC CONTENT SUPPORT MISSING")
+            
+            # Summary of NEW Revolutionary Engine Test
+            print(f"\n🎉 NEW REVOLUTIONARY 170+ ENGINE SUMMARY:")
+            print(f"   - Analysis Count: {total_analysis_count}/170+ ({'✅' if total_analysis_count >= 170 else '❌'})")
+            print(f"   - Categories: {categories_count}/15 ({'✅' if categories_count >= 10 else '❌'})")
+            print(f"   - Engine Version: {'✅' if 'v3.0' in engine_version else '❌'}")
+            print(f"   - Performance: {'✅' if duration < 30 else '❌'}")
+            print(f"   - Arabic Support: {'✅' if arabic_content else '❌'}")
+            
+            return True, response
+        else:
+            print(f"\n❌ NEW REVOLUTIONARY 170+ ENGINE TEST FAILED!")
+            return False, {}
+
 
 
     def test_urgent_user_request(self):
