@@ -700,21 +700,21 @@ class FinancialAnalysisEngine:
             
             # 1. نسب السيولة (15 نوع)
             'liquidity_ratios': {
-                'current_ratio': round(self.current_ratio(), 2),
-                'quick_ratio': round(self.quick_ratio(), 2),
-                'cash_ratio': round(self.cash_ratio(), 2),
-                'absolute_cash_ratio': round(self.absolute_cash_ratio(), 2),
-                'super_quick_ratio': round(self.super_quick_ratio(), 2),
-                'working_capital': round(self.working_capital(), 2),
-                'working_capital_ratio': round(self.working_capital_ratio(), 2),
-                'operating_cash_flow_ratio': round(self.operating_cash_flow_ratio(), 2),
-                'defensive_interval_ratio': round(self.defensive_interval_ratio(), 2),
-                'critical_liquidity_ratio': round(self.critical_liquidity_ratio(), 2),
-                'cash_conversion_cycle': round(self.cash_conversion_cycle(), 2),
-                'liquid_assets_ratio': round(self.liquid_assets_ratio(), 2),
-                'cash_turnover_ratio': round(self.cash_turnover_ratio(), 2),
-                'cash_coverage_ratio': round(self.cash_coverage_ratio(), 2),
-                'modified_liquidity_ratio': round(self.modified_liquidity_ratio(), 2)
+                'current_ratio': round(make_json_safe(self.current_ratio()), 2),
+                'quick_ratio': round(make_json_safe(self.quick_ratio()), 2),
+                'cash_ratio': round(make_json_safe(self.cash_ratio()), 2),
+                'absolute_cash_ratio': round(make_json_safe(self.absolute_cash_ratio()), 2),
+                'super_quick_ratio': round(make_json_safe(self.super_quick_ratio()), 2),
+                'working_capital': round(make_json_safe(self.working_capital()), 2),
+                'working_capital_ratio': round(make_json_safe(self.working_capital_ratio()), 2),
+                'operating_cash_flow_ratio': round(make_json_safe(self.operating_cash_flow_ratio()), 2),
+                'defensive_interval_ratio': round(make_json_safe(self.defensive_interval_ratio()), 2),
+                'critical_liquidity_ratio': round(make_json_safe(self.critical_liquidity_ratio()), 2),
+                'cash_conversion_cycle': round(make_json_safe(self.cash_conversion_cycle()), 2),
+                'liquid_assets_ratio': round(make_json_safe(self.liquid_assets_ratio()), 2),
+                'cash_turnover_ratio': round(make_json_safe(self.cash_turnover_ratio()), 2),
+                'cash_coverage_ratio': round(make_json_safe(self.cash_coverage_ratio()), 2),
+                'modified_liquidity_ratio': round(make_json_safe(self.modified_liquidity_ratio()), 2)
             },
             
             # 2. نسب النشاط (18 نوع)
