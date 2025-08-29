@@ -376,9 +376,18 @@ const AdvancedAnalysisPage = () => {
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white leading-normal" style={{fontFamily: 'Arial, sans-serif'}}>
-              {language === 'ar' ? 'نظام FinClick.AI للتحليل المالي الذكي الثوري' : 'FinClick.AI Revolutionary Intelligent Financial Analysis System'}
-            </h1>
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white" 
+                  style={{
+                    fontFamily: 'Arial, Helvetica, sans-serif',
+                    textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+                    letterSpacing: '1px'
+                  }}>
+                {language === 'ar' ? 
+                  'نظام FinClick.AI للتحليل المالي الذكي الثوري' : 
+                  'FinClick.AI Revolutionary Intelligent Financial Analysis System'
+                }
+              </h1>
             
             <p className="text-lg text-gray-300 mb-6 max-w-4xl mx-auto leading-relaxed">
               {language === 'ar' 
